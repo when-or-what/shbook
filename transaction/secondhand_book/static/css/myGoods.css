@@ -1,0 +1,148 @@
+.main{
+    margin: auto;
+    width: 80.5vw;
+}
+/* 左边栏 */
+.main .leftSidebar{
+    width: 15vw;
+    height: 900px;
+    background-color: #AEAAA9;
+    float: left;
+}
+
+.main .leftSidebar .indexGoods{
+    width:15vw;
+    height: 60px;
+    font-size: 25px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #AEAAA9;
+    border-bottom:2px solid #3A3A3A ;
+    color:#E4F0FC
+}
+
+.main .leftSidebar .indexPersonIfo{
+    width:15vw;
+    height: 60px;
+    font-size: 25px;
+    line-height: 60px;
+    text-align: center;
+    background-color:#AEAAA9;
+    border-bottom:2px solid #3A3A3A ;
+    color:#E4F0FC
+}
+
+.main .leftSidebar .indexMyGoods{
+    width:15vw;
+    height: 60px;
+    font-size: 25px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #767070;
+    border-bottom:2px solid #3A3A3A ;
+    color:#E4F0FC
+}
+
+/* 右边栏 */
+.main .rightSidebar{
+    width: 65vw;
+    height: 900px;
+    float:left;
+    border-right: 1px solid #3A3A3A;
+    text-align: center;
+    background-image: url("../img/6.jpg");
+}
+
+/* 标题栏 */
+.main .rightSidebar .titleBar{
+    width: 65vw;
+    height: 150px;
+    background-color:  rgba(139, 150, 150,0.5);
+    margin: auto;
+    font-size: 20px;
+    line-height: 150px;
+}
+
+.main .rightSidebar .titleBar .picture{
+    float:left;
+    width: 150px;
+    margin-left: 150px;
+    /* background-color: #767070; */
+}
+
+.main .rightSidebar .titleBar .name{
+    float:left;
+    width:200px;
+    /* background-color: #E4F0FC; */
+}
+
+.main .rightSidebar .titleBar .price{
+    float:left;
+    width: 160px;
+   /* background-color: azure; */
+}
+
+.main .rightSidebar .titleBar .operation{
+    float:left;
+    width:200px;
+    /* background-color: rgb(198, 143, 25); */
+}
+
+/* 商品显示 */
+.main .rightSidebar .mygoodsList{
+    list-style: none;
+    padding: 0;
+}
+
+.main .rightSidebar .mygoodsList .mygoodsItem{
+    width: 50vw;
+    height: 150px;
+    margin: auto;
+    background-color: #F2F2F2;
+    margin-top: 20px;
+    list-style: none;
+    border-radius: 40px;
+}
+
+.main .rightSidebar .mygoodsList .mygoodsItem .itemImg{
+    width: 150px;
+    height: 100px;
+    background-color: #3A3A3A;
+    float:left;
+    margin-top: 25px;
+    margin-left: 50px;
+
+}
+
+.main .rightSidebar .mygoodsList .mygoodsItem .itemTitle{
+    float: left;
+    width:180px;
+    height:150px;
+    line-height: 150px;
+    /* background-color: aqua; */
+    text-align: center;
+}
+
+.main .rightSidebar .mygoodsList .mygoodsItem .itemPrice{
+    float: left;
+    width: 180px;
+    height:150px;
+    line-height:150px;
+    /* background-color:bisque; */
+    text-align: center;
+}
+
+.main .rightSidebar .mygoodsList .mygoodsItem .itemOperation{
+    float: left;
+    height: 30px;
+    width: 60px;
+    margin-top: 63px;
+    margin-left: 60px;
+    border-radius: 10px;
+    border-color: #AEAAA9;
+    /* background-color:rgb(201, 143, 72); */
+    /* text-align: center; */
+}
+a{
+    text-decoration: none;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #side-menu {
+      background-color: lightgrey;
+      display: block;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      width: 250px;
+      transition: transform 200ms ease-in;
+      transform: translateX(calc(-100% + 24px));
+    }
+
+    #side-menu:hover {
+      transform: translateX(0px);
+    }
+
+    #side-menu-inner {
+      display: block;
+      height: 100%;
+      width: calc(100% - 24px);
+      background-color: rgba(0, 203, 250, 0.6);
+    }
+    .pc-search-items-list {
+        width: 1190px;
+        font-size: 0;
+        font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',sans-serif;
+        border-top: 1px solid #f2f2f2;
+        border-left: 1px solid #f2f2f2;
+    }
+    .pc-search-items-list .pc-items-item {
+        width: 236px;
+        height: 368px;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 12px;
+        border: 1px solid #f2f2f2;
+        border-top: none;
+        border-left: none;
+        background: #fff;
+        vertical-align: top;
+    }
+    .pc-search-items-list .pc-items-item-a {
+        display: inline-block;
+        width: 234px;
+        height: 366px;
+        box-sizing: border-box;
+        padding: 22px 20px 0;
+        background: #fff;
+        position: relative;
+        text-decoration: none;
+    }
+    .pc-search-items-list .pc-items-item-img {
+    width: 198px;
+    height: 198px;
+    }
+    .pc-search-items-list .pc-items-item-title.pc-items-item-title-row2 {
+        height: 40px;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .pc-search-items-list .pc-items-item-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #9b9b9b;
+        line-height: 20px;
+        padding-top: 10px;
+    }
+    .pc-search-items-list .title-text {
+    vertical-align: middle;
+    }
+    .pc-search-items-list .price-con {
+        height: 25px;
+        padding: 6px 0 0;
+        line-height: 1.6;
+    }
+    .pc-search-items-list .price-con .coupon-price-title {
+    vertical-align: baseline;
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #fd3f31;
+    }
+    .pc-search-items-list .price-con .coupon-price-afterCoupon {
+    margin-left: 4px;
+    vertical-align: baseline;
+    text-align: left;
+    line-height: 25px;
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #fd3f31;
+    }
+    .pc-search-items-list .price-con .coupon-price-old {
+    margin-left: 8px;
+    vertical-align: baseline;
+    text-decoration: line-through;
+    line-height: 20px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #9b9b9b;
+    }
+  </style>
+</head>
+<body>
+<div id="side-menu">
+  <div id="side-menu-inner">
+          <ul class="submenu" onclick="stopHere();">
+              <li class="hsub">
+                  <a href="../homepage" class="dropdown-toggle">
+                      <i></i>商品<b></b>
+                  </a>
+                  <b></b>
+              </li>
+
+              <li class="hsub" >
+                  <a href="../individual_info">
+                      <i></i>个人信息<b></b>
+                  </a>
+                  <b></b>
+              </li>
+
+              <li class="hsub">
+                  <a href="#">
+                      <i></i>我的商品<b></b>
+                  </a>
+                  <b></b>
+              </li>
+          </ul>
+  </div>
+</div>
+<div id="main_container">
+    <div class="search" style="text-align: center; margin: auto">
+        <input type="hidden" id="csrf" value="{{ csrf_token }}">
+        <input type="text" name="keyword" id="keyword">
+        <button id="search" type="submit" name="search"><a>搜索</a></button>
+    </div>
+    <ul class="pc-search-items-list">
+        {% for goods in goods_list %}
+            <li class="pc-items-item">
+            <a href="../commodity/{{ goods.Commodity_ID }}" class="pc-items-item-a" target="_blank">
+                <img class="pc-items-item-img img-loaded" data-rewrite="{width:'468',height: '468'}" data-lazy-collect="1" src="/static/homepage/{{ goods.Img }}">
+                <div class="pc-items-item-title pc-items-item-title-row2"> <span class="title-text"> {{ goods.Commodity_Name }} </span> </div>
+                <div class="price-con"><span class="coupon-price-title">¥</span><span class="coupon-price-afterCoupon">{{ goods.Price }}</span><span class="coupon-price-old">¥49.60</span></div>
+            </a>
+            </li>
+        {% endfor %}
+
+    </ul>
+</div>
+<script src="../static/js/jquery-3.6.1.min.js"></script>
+<script src="../static/js/search.js" charset="GB2312"></script>
+{% if errmsg %}
+    <script>
+        alert("{{ errmsg }}");
+    </script>
+{% endif %}
+</body>
+</html>

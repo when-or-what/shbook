@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <img src="{% static 'img/backgroud.png' %}">
+    <img src="{% static 'img/emil.png' %}">
+    <title>找回密码</title>
+    <style>
+        * { 
+            margin: 0; padding: 0; 
+        }
+        html 
+        { 
+            height: 100%; 
+        }
+        body 
+        { 
+            height: 100%; 
+            background: #fff url(./static/img/backgroud.png) 50% 50% no-repeat; 
+            background-size: cover;
+        }
+        .dowebok 
+        { 
+            position: absolute; 
+            left: 50%;
+            top: 50%; 
+            width: 430px;
+            height: 400px;
+            margin: -300px 0 0 -215px; 
+            border: 1px solid rgb(255, 255, 255); 
+            border-radius: 20px; 
+            overflow: hidden;
+            background: rgba(88, 70, 70, 0.432);  
+        }
+        .logo 
+        { 
+            width: 250px; 
+            height: 80px; 
+            margin: 50px auto 25px;
+            font-size:25px; 
+            padding-left: 140px;
+        }
+        .form-item 
+        { 
+            position: relative; 
+            width: 360px; 
+            height:40px;
+            margin: 20px; 
+            padding-bottom: 20px;
+        }
+        .form-item input 
+        { 
+            width: 288px; 
+            height: 48px; 
+            padding-left: 70px; 
+            border: 1px solid #fff; 
+            border-radius: 25px; 
+            font-size: 18px; color: #fff; 
+            outline: none;
+        }
+        .form-item button 
+        { 
+            width: 360px; 
+            height: 50px; 
+            border: 0; 
+            border-radius: 25px; 
+            font-size: 18px; 
+            color: #b3b162; 
+            outline: none; 
+            cursor: pointer; 
+            background-color: rgba(74, 42, 15, 0.847); 
+        }
+        #emil
+        {
+            background: url(./static/img/emil.png) 20px 9px no-repeat;
+        }
+        .text-muted 
+        {
+            color: #6c757d !important;
+            width: 400px;
+            margin-left: 15px;
+            margin-bottom: 30px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="dowebok">
+        <div class="logo">找回密码</div>
+        <p class="text-muted" style="">输入您的电子邮件地址，我们将给您发送电子邮件，指导您重置密码</p>
+        <form method="post" action="">
+        {% csrf_token %}
+            <div class = "form-item">
+                <input id="email" type="text" autocomplete="off" placeholder="邮箱" name="email">
+            </div>
+            <div class="form-item">
+                <input type="submit" id="confirm" value="确 认"></input>
+            </div>
+        </form>
+    </div>
+    {% if errmsg %}
+        <script>
+            alert("{{errmsg}}");
+        </script>
+    {% endif %}
+</body>
+</html>

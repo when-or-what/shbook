@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <img src="{% static 'img/emil.png' %}">
+    <img src="{% static 'img/password.png' %}">
+    <img src="{% static 'img/backgroud.png' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园二手书交易平台登录</title>
+    <style>
+        * { margin: 0; padding: 0; }
+        html { height: 100%; }
+        body { height: 100%; background: #fff url(./static/img/backgroud.png) 50% 50% no-repeat; background-size: cover;}
+        .dowebok { position: absolute; left: 50%; top: 50%; width: 430px; height: 550px; margin: -300px 0 0 -215px; border: 1px solid #fff; border-radius: 20px; overflow: hidden;  background: rgba(88, 70, 70, 0.432);}
+        .logo { width: 250px; height: 100px; margin: 50px auto 80px;font-size:25px; }
+        .form-item { position: relative; width: 360px; margin: 0 auto; padding-bottom: 30px;}
+        .form-item input { width: 288px; height: 48px; padding-left: 70px; border: 1px solid #fff; border-radius: 25px; font-size: 18px; color: #fff; background-color: transparent; outline: none;}
+        .form-item button { width: 360px; height: 50px; border: 0; border-radius: 25px; font-size: 18px; color: #1f6f4a; outline: none; cursor: pointer; background-color: #fff; }
+        #username { background: url(./static/img/emil.png) 20px 14px no-repeat; }
+        #password { background: url(./static/img/password.png) 23px 11px no-repeat; }
+        .tip { display: none; position: absolute; left: 20px; top: 52px; font-size: 14px; color: #f50; }
+        .reg-bar { width: 360px; margin: 20px auto 0; font-size: 14px; overflow: hidden;}
+        .reg-bar a { color: #fff; text-decoration: none; }
+        .reg-bar a:hover { text-decoration: underline; }
+        .reg-bar .reg { float: left; }
+        .reg-bar .forget { float: right; }
+    </style>
+</head>
+<body>
+    <div class="dowebok">
+        <div class="logo">校园二手书交易平台</div>
+        <form method="post" action="/" name="loginInput">
+        {% csrf_token %}
+            <div class="form-item">
+                <input id="username" type="text" autocomplete="off" placeholder="用户名" name="username" maxlength=15 onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+            </div>
+            <div class="form-item">
+                <input id="password" type="password" autocomplete="off" placeholder="登录密码" name="password" onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" maxlength=15>
+            </div>
+            <div class="form-item">
+                <button type="submit" id="login" name="login">登 录</button>
+            </div>
+        </form>
+        <div class="reg-bar">
+        <a class="reg" href="/secondhand_book/register">立即注册</a>
+        <a class="forget" href="/secondhand_book/findpswd">忘记密码</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+    {% if message %}
+        <script>
+            alert("{{ message }}");
+            alert("{{ rstpwd_message }}");
+        </script>
+    {% endif %}
+</body>
+</html>
