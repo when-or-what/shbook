@@ -12,25 +12,34 @@
 <body style="margin-top: 0;">
     <div class="main">
         <div class="leftSidebar">
-            <a href="pages/index.html"><div class="indexGoods">商品</div></a>
-            <a href="pages/personIfo.html"><div class="indexPersonIfo">个人信息</div></a> 
-            <a href="pages/myGoods.html"><div class="indexMyGoods">我的商品</div></a>
+            <a href="../homepage"><div class="indexGoods">商品</div></a>
+            <a href="../person_info"><div class="indexPersonIfo">个人信息</div></a> 
+            <a href="../mygoods"><div class="indexMyGoods">我的商品</div></a>
         </div>
     
         <div class="rightSidebar">
             <div class="rightUp">
-                <img class="headPortraint" src="{% static 'img/1.jpg' %}">
-                <div class="user">用户名</div>
+                <img class="headPortraint" src="/static/{{user.img_path}}">
+                <div class="user">{{uid}}</div>
             </div>
             <div class="rightDown">
                 <form method="post" enctype="multipart/form-date">
-                    <a  href="pages/changhead.html"><div class="changeHead">修改头像</div></a>
-                    <a  href="pages/changeid.html"><div class="changeID">修改用户名</div></a>
-                    <a  href="pages/changepsd.html"><div class="changePassword">修改密码</div></a>   
+                    <a  href="../changepht"><div class="changeHead">修改头像</div></a>
+                    <a  href="../changename"><div class="changeID">修改用户名</div></a>
+                    <a  href="../changepswd"><div class="changePassword">修改密码</div></a>   
                 </form>
-                
             </div>
         </div>
     </div>
+{% if user_id_change_success_msg %}
+    <script>
+        alert("{{ user_id_change_success_msg }}")
+    </script>
+{% endif %}
+{% if chg_pswd_suc_msg %}
+    <script>
+        alert("{{ chg_pswd_suc_msg }}")
+    </script>
+{% endif %}
 </body>
 </html>

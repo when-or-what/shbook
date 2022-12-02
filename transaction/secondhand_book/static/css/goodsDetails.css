@@ -1,0 +1,51 @@
+.main{
+    width: 60vw;
+    margin: auto;
+    height: 600px;
+    border: 1px solid rgb(74, 71, 71);
+}
+.left{
+    float:left;
+    width: 30vw;
+    height: 600px;
+}
+.left .bigPic{
+    width: 30vw;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+}
+.left .smallPic{
+    float: left;
+    width:10vw;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+}
+
+.right{
+    float: left;
+    width: 30vw;
+    height: 600px;
+    font-size: 20px;
+    color: black;
+}
+.right .sty{
+    height: 130px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.right .sty span{
+    background-color: rgb(154, 154, 177);
+    height: 60px;
+    line-height: 60px;
+    width: 200px;
+    text-align: center;
+}

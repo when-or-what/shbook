@@ -140,5 +140,10 @@
             <a class="reg" href="/secondhand_book/login_view">已有账户，登录</a>
         </div>
     </div>
+{% if reg_failed_msg %}
+    <script>
+        alert("{{ reg_failed_msg }}");
+    </script>
+{% endif %}
 </body>
 </html>

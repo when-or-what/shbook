@@ -81,15 +81,26 @@
 <body>
     <div class="dowebok">
         <div class="logo">修改密码</div>
-        <div >
-            <label class="newpsd-new">新密码<input type="password"  placeholder="请设置密码" id="emil"></label>        
-        </div>
-        <div >
-            <label class="newpsd-con">确认密码<input type="password" placeholder="请再次输入密码" id="emil"></label>      
-        </div>
-        <div class="form-item">
-            <button id="submit">确认</button>
-        </div>    
+        <form method="post" action="">
+            {% csrf_token %}
+            <div >
+                <input type="password"  placeholder="请输入原密码" id="emil" name="oldpswd"></input>        
+            </div>
+            <div >
+                <input type="password"  placeholder="请设置新密码" id="emil" name="newpswd1"></input>   
+            </div>
+            <div >
+                <input type="password" placeholder="请确认新密码" id="emil" name="newpswd2"></input>
+            </div>
+            <div class="form-item">
+                <input type="submit" id="submit" value="确 认"></input>
+            </div>
+        </form>
     </div>
+{% if chg_pswd_failed_msg %}
+    <script>
+        alert("{{ chg_pswd_failed_msg }}")
+    </script>
+{% endif %}
 </body>
 </html>

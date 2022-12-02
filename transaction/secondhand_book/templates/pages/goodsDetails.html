@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+    <link rel="stylesheet" tyle="text/css" href="{% static 'css/goodsDetails.css' %}">
+</head>
+<body style="background-image: url('/static/img/6.jpg');">
+    <div class="main">
+        <div class="left"> 
+            <div class="bigPic"><img  src="/static/{{ good.picture }}"></div>
+            <div class="smallPic"><img  src="/static/{{ good.commodity_id }}/1.jpg"></div>
+            <div class="smallPic"><img  src="/static/{{ good.commodity_id }}/2.jpg"></div>
+            <div class="smallPic"><img  src="/static/{{ good.commodity_id }}/3.jpg"></div>
+            
+        </div>
+        <div class="right">
+            <div class="sty"><span>{{good.commodity_name}}</span></div>
+            <div class="sty"><span>{{good.price}}</span></div>
+            <div class="sty"><span>{{good.note}}</span></div>
+            <div class="sty"><span>{{good.user_contact}}</span></div>
+        </div>
+    </div>
+   
+</body>
+</html>

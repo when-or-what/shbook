@@ -33,8 +33,7 @@ class Goods(models.Model):
     # UserID = models.ForeignKey('UserInfo', related_name='UserID_Goods', on_delete=models.CASCADE)
     # Img = models.CharField(max_length=40, null=True, blank=True)
     commodity_id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(
-        'UserInfo', related_name='UserInfo_Goods', on_delete=models.CASCADE, max_length=15)
+    user_id = models.CharField(max_length=15)
     commodity_name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     user_contact = models.CharField(max_length=100)

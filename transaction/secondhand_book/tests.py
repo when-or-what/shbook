@@ -18,18 +18,18 @@ from secondhand_book.models import *
 # UserID = models.ForeignKey('UserInfo', related_name='UserID_Goods', on_delete=models.CASCADE)
 # Commodity_Name = models.CharField(max_length=120, null=True, blank=True)
 if __name__ == '__main__':
-    UserInfo.objects.create(
-        Username='麻阔', password='123456', Email='765019392@qq.com')
-    q = UserInfo.objects.filter(Username='麻阔')
-    newImg = str(q[0].UserID) + '.jpg'
-    q.update(Img=newImg)
+    # UserInfo.objects.create(
+    #     Username='麻阔', password='123456', Email='765019392@qq.com')
+    # q = UserInfo.objects.filter(Username='麻阔')
+    # newImg = str(q[0].UserID) + '.jpg'
+    # q.update(Img=newImg)
 
-    Goods.objects.create(Price=25, Contact_QQ=765019392,
-                         Note='无', UserID=q[0], Commodity_Name='高等数学')
-    q = Goods.objects.filter(Commodity_Name='高等数学')
+    Goods.objects.create(price=25, user_contact='765019392',
+                         user_id='1234', commodity_name='高等数学')
+    # q = Goods.objects.filter(commodity_name='高等数学')
 
-    UserInfo.objects.create(Username='刘忠东',
-                            password='123456', Email='2328954508@qq.com')
-    q = UserInfo.objects.filter(Username='刘忠东')
-    newImg = str(q[0].UserID) + '.jpg'
-    q.update(Img=newImg)
+    # UserInfo.objects.create(Username='刘忠东',
+    #                         password='123456', Email='2328954508@qq.com')
+    # q = UserInfo.objects.filter(Username='刘忠东')
+    # newImg = str(q[0].UserID) + '.jpg'
+    # q.update(Img=newImg)

@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>修改头像</title>
     <style>
-
         .form-item button 
         { 
             width: 360px; 
@@ -80,13 +79,23 @@
 </head>
 <body>
     <div class="dowebok">
-        <div class="logo">修改头像</div>
+        {% comment %} <div class="logo">修改头像</div>
         <div >
             <label class="newpsd-new">新图片<input type="file"  placeholder="请设置昵称" id="emil"></label>        
-        </div>
-        <div class="form-item">
-            <button id="submit">确认</button>
-        </div>    
+        </div> {% endcomment %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="head">
+            <input type="submit" name="提交">
+        </form>
+        {% comment %} <div class="form-item">
+            <button type="submit" id="submit">确认</button>
+        </div>     {% endcomment %}
     </div>
+{% if no_img %}
+    <script>
+        alert("{{ no_img }}");
+    </script>
+{% endif %}
 </body>
 </html>

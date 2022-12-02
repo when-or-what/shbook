@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>修改用户名</title>
     <style>
 
         .form-item button 
@@ -81,15 +81,31 @@
 <body>
     <div class="dowebok">
         <div class="logo">修改用户名</div>
-        <div >
-            <label class="newpsd-new">新用户名<input type="password"  placeholder="请设置昵称" id="emil"></label>        
-        </div>
-        <div >
-            <label class="newpsd-con">确认用户名<input type="password" placeholder="请再次输入昵称" id="emil"></label>      
-        </div>
-        <div class="form-item">
-            <button id="submit">确认</button>
-        </div>    
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <div>
+                {% comment %} <label class="newpsd-new">
+                    原用户名 <input type="text" placeholder="输入现在的用户ID" id="emil" name="oldname"></input>
+                </label> {% endcomment %}
+                <label class="newpsd-new">
+                    新用户名 <input type="text" placeholder="请设置新ID" id="emil" name="newname"></input>
+                </label>
+            </div>
+            <div class="form-item">
+                <input type="submit" id="submit" value="确 认"></input>
+            </div>
+        </form>
     </div>
+{% if user_id_change_failed_msg %}
+    <script>
+        alert("{{ user_id_change_failed_msg }}");
+    </script>
+{% endif %}
+{% if user_id_same_msg %}
+    <script>
+        alert("{{ user_id_same_msg }}")
+    </script>
+{% endif %}
 </body>
 </html>

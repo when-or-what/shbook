@@ -51,11 +51,15 @@
         </div>
     </div>
     <script type="text/javascript" src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
-    {% if message %}
-        <script>
-            alert("{{ message }}");
-            alert("{{ rstpwd_message }}");
-        </script>
-    {% endif %}
+{% if rstpwd_message %}
+    <script>
+        alert("{{ rstpwd_message }}");
+    </script>
+{% endif %}
+{% if reg_suc_msg %}
+    <script>
+        alert("{{ reg_suc_msg }}");
+    </script>
+{% endif %}
 </body>
 </html>
